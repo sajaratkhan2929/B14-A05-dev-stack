@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import TechCard from "./components/TechCard";
 import type { Tech } from "./types";
 import StackSidebar from "./components/StackSidebar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [technologies, setTechnologies] = useState<Tech[]>([]);
@@ -15,20 +17,26 @@ function App() {
       .then((data) => setTechnologies(data));
   }, []);
 
-  const handleAdd = (tech: Tech) => {
+    const handleAdd = (tech: Tech) => {
     const alreadyAdded = stack.some((item) => item.id === tech.id);
     if (alreadyAdded) {
-      alert(`${tech.name} is already in your stack.`);
+      toast.warning(`${tech.name} is already in your stack.`);
       return;
     }
     setStack([...stack, tech]);
+    toast.success(`${tech.name} added to your stack.`);
   };
-    const handleRemove = (id: string) => {
+
+  const handleRemove = (id: string) => {
+    const removed = stack.find((item) => item.id === id);
     setStack(stack.filter((item) => item.id !== id));
+    if (removed) toast.info(`${removed.name} removed from your stack.`);
   };
 
   const handleRemoveAll = () => {
+    if (stack.length === 0) return;
     setStack([]);
+    toast.info("Stack cleared.");
   };
 
   return (
@@ -63,6 +71,7 @@ function App() {
           />
         </div>
       </section>
+           <ToastContainer position="top-right" autoClose={2000} />
     </>
   );
 }
