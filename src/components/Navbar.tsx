@@ -1,7 +1,7 @@
 const Navbar = () => {
   return (
-    <nav className="w-full bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6">
+<nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6">
         <div className="h-20 flex items-center justify-between">
 
           {/* Mobile hamburger (left on mobile, hidden on desktop) */}
