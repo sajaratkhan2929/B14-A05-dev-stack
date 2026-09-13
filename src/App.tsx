@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
+
 import Navbar from "./components/Navbar";
+
 import Hero from "./components/Hero";
+
 import TechCard from "./components/TechCard";
+
+import Footer from "./components/Footer";
+
 import type { Tech } from "./types";
+
 import StackSidebar from "./components/StackSidebar";
 import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   const [technologies, setTechnologies] = useState<Tech[]>([]);
@@ -40,7 +49,8 @@ function App() {
   };
 
   return (
-    <>
+  <>
+    <footer>
       <Navbar />
       <Hero />
 
@@ -71,7 +81,9 @@ function App() {
           />
         </div>
       </section>
+       <Footer />
            <ToastContainer position="top-right" autoClose={2000} />
+    </footer>
     </>
   );
 }

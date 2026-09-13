@@ -30,7 +30,7 @@ function Hero() {
       </div>
 
       {/* Image */}
-      <img src={banner} alt="Development Stack" className="w-64 md:w-80" />
+      <img src={banner} alt="Development Stack" className="h-100 w-auto max-h-full object-contain" />
 
     </section>
   );
