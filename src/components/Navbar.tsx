@@ -5,9 +5,10 @@ const Navbar = () => {
         <div className="h-20 flex items-center justify-between">
 
           {/* Mobile hamburger (left on mobile, hidden on desktop) */}
-          <button className="order-1 md:hidden text-2xl text-gray-700">
-            ☰
-          </button>
+          <button className="order-1 md:hidden">
+  <img src="/src/assets/hamburger.png" alt="Menu" className="w-6 h-6" />
+</button>
+         
 
           {/* Logo */}
           <a href="/" className="order-2 md:order-1 mx-auto md:mx-0">
