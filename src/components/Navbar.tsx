@@ -1,3 +1,5 @@
+import logo from "../assets/logo-text.png";
+
 const Navbar = () => {
   return (
 <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -5,15 +7,15 @@ const Navbar = () => {
         <div className="h-20 flex items-center justify-between">
 
           {/* Mobile hamburger (left on mobile, hidden on desktop) */}
-          <button className="order-1 md:hidden">
-  <img src="/src/assets/hamburger.png" alt="Menu" className="w-6 h-6" />
-</button>
+           <button className="order-1 md:hidden text-2xl text-gray-700">
+            ☰
+          </button>
          
 
           {/* Logo */}
           <a href="/" className="order-2 md:order-1 mx-auto md:mx-0">
             <img
-              src="/src/assets/logo-text.png"
+              src={logo}
               alt="DevStack"
               className="w-32 md:w-40 h-auto"
             />
