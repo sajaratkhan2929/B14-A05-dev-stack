@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechCard from "./components/TechCard";
 import type { Tech } from "./types";
+import StackSidebar from "./components/StackSidebar";
 
 function App() {
   const [technologies, setTechnologies] = useState<Tech[]>([]);
@@ -22,6 +23,13 @@ function App() {
     }
     setStack([...stack, tech]);
   };
+    const handleRemove = (id: string) => {
+    setStack(stack.filter((item) => item.id !== id));
+  };
+
+  const handleRemoveAll = () => {
+    setStack([]);
+  };
 
   return (
     <>
@@ -36,15 +44,23 @@ function App() {
           Pick one technology per category to build your ideal stack.
         </p>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {technologies.map((tech) => (
-            <TechCard
-              key={tech.id}
-              tech={tech}
-              isAdded={stack.some((item) => item.id === tech.id)}
-              onAdd={handleAdd}
-            />
-          ))}
+                <div className="mt-6 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+            {technologies.map((tech) => (
+              <TechCard
+                key={tech.id}
+                tech={tech}
+                isAdded={stack.some((item) => item.id === tech.id)}
+                onAdd={handleAdd}
+              />
+            ))}
+          </div>
+
+          <StackSidebar
+            stack={stack}
+            onRemove={handleRemove}
+            onRemoveAll={handleRemoveAll}
+          />
         </div>
       </section>
     </>
