@@ -21,7 +21,7 @@ A beautiful and responsive web application where users can explore different tec
    The website works smoothly on desktop, tablet, and mobile devices.
 
 --------------------------------------------------------------------------
-
+###You can check the website here: https://b14-a05-dev-stack01.netlify.app/
 ### React Questions & Answers
 
 1. What is JSX, and why is it used in React?
